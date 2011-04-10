@@ -26,7 +26,7 @@
 /*---includes-----------------------------------------------------------*/
 #include "precomp.h"
 #include "gutilsrc.h"
-#include "..\sdkdiff\errorout.h"
+#include "errorout.h"
 
 /*--functions----------------------------------------------------------*/
 

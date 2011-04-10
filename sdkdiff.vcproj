@@ -1,242 +1,393 @@
-<?xml version="1.0" encoding = "windows-1251"?>
+<?xml version="1.0" encoding="windows-1251"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.00"
+	Version="9.00"
 	Name="sdkdiff"
 	ProjectGUID="{AD3FC307-EA18-42CB-B914-759B6834BDAC}"
-	Keyword="ManagedCProj">
+	RootNamespace="sdkdiff"
+	Keyword="ManagedCProj"
+	TargetFrameworkVersion="131072"
+	>
 	<Platforms>
 		<Platform
-			Name="Win32"/>
+			Name="Win32"
+		/>
 	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="Debug"
 			IntermediateDirectory="Debug"
 			ConfigurationType="1"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC70.vsprops"
 			CharacterSet="2"
-			ManagedExtensions="TRUE">
+			ManagedExtensions="0"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="WIN32;_DEBUG;WINDOWS;_WIN32_WINNT=0x500"
-				MinimalRebuild="FALSE"
+				PreprocessorDefinitions="WIN32;_DEBUG;WINDOWS;_WIN32_WINNT=0x500;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS"
+				MinimalRebuild="false"
 				BasicRuntimeChecks="0"
-				RuntimeLibrary="1"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="precomp.h"
 				WarningLevel="3"
-				DebugInformationFormat="3"/>
+				DebugInformationFormat="3"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				AdditionalIncludeDirectories=""
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)\sdkdiff.exe"
 				LinkIncremental="2"
-				GenerateDebugInformation="TRUE"/>
+				GenerateDebugInformation="true"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
+			/>
 			<Tool
-				Name="VCMIDLTool"/>
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="copy sdkdiff.hlp .\$(OutDir)\sdkdiff.hlp"/>
-			<Tool
-				Name="VCPreBuildEventTool"/>
-			<Tool
-				Name="VCPreLinkEventTool"/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories=""/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
-			<Tool
-				Name="VCWebDeploymentTool"/>
+				CommandLine="copy sdkdiff.hlp .\$(OutDir)\sdkdiff.hlp"
+			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="Release"
 			IntermediateDirectory="Release"
 			ConfigurationType="1"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC70.vsprops"
 			CharacterSet="2"
-			ManagedExtensions="TRUE">
+			ManagedExtensions="0"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				PreprocessorDefinitions="WIN32;NDEBUG"
-				MinimalRebuild="FALSE"
-				WarningLevel="3"/>
+				PreprocessorDefinitions="WIN32;NDEBUG;_WIN32_WINNT=0x500;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS"
+				MinimalRebuild="false"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="precomp.h"
+				WarningLevel="3"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)/sdkdiff.exe"
 				LinkIncremental="1"
-				GenerateDebugInformation="TRUE"/>
+				GenerateDebugInformation="true"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
+			/>
 			<Tool
-				Name="VCMIDLTool"/>
+				Name="VCALinkTool"
+			/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCManifestTool"
+			/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
+				Name="VCXDCMakeTool"
+			/>
 			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCBscMakeTool"
+			/>
 			<Tool
-				Name="VCResourceCompilerTool"/>
+				Name="VCFxCopTool"
+			/>
 			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
+				Name="VCAppVerifierTool"
+			/>
 			<Tool
-				Name="VCWebDeploymentTool"/>
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 		<Filter
 			Name="Source Files"
-			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm">
+			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm"
+			>
 			<File
-				RelativePath="ErrorOut.cpp">
+				RelativePath="bar.cpp"
+				>
 			</File>
 			<File
-				RelativePath="bar.cpp">
+				RelativePath="compitem.cpp"
+				>
 			</File>
 			<File
-				RelativePath="compitem.cpp">
+				RelativePath="complist.cpp"
+				>
 			</File>
 			<File
-				RelativePath="complist.cpp">
+				RelativePath="ErrorOut.cpp"
+				>
 			</File>
 			<File
-				RelativePath="file.cpp">
+				RelativePath="file.cpp"
+				>
 			</File>
 			<File
-				RelativePath="findgoto.cpp">
+				RelativePath="findgoto.cpp"
+				>
 			</File>
 			<File
-				RelativePath="gfile.cpp">
+				RelativePath="gfile.cpp"
+				>
 			</File>
 			<File
-				RelativePath="gutils.cpp">
+				RelativePath="gutils.cpp"
+				>
 			</File>
 			<File
-				RelativePath="line.cpp">
+				RelativePath="line.cpp"
+				>
 			</File>
 			<File
-				RelativePath="list.cpp">
+				RelativePath="list.cpp"
+				>
 			</File>
 			<File
-				RelativePath="profile.cpp">
+				RelativePath=".\precomp.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="scandir.cpp">
+				RelativePath="profile.cpp"
+				>
 			</File>
 			<File
-				RelativePath="sdkdiff.cpp">
+				RelativePath="scandir.cpp"
+				>
 			</File>
 			<File
-				RelativePath="section.cpp">
+				RelativePath="sdkdiff.cpp"
+				>
 			</File>
 			<File
-				RelativePath="status.cpp">
+				RelativePath="section.cpp"
+				>
 			</File>
 			<File
-				RelativePath="table.cpp">
+				RelativePath="status.cpp"
+				>
 			</File>
 			<File
-				RelativePath="tpaint.cpp">
+				RelativePath="table.cpp"
+				>
 			</File>
 			<File
-				RelativePath="tprint.cpp">
+				RelativePath="tpaint.cpp"
+				>
 			</File>
 			<File
-				RelativePath="tree.cpp">
+				RelativePath="tprint.cpp"
+				>
 			</File>
 			<File
-				RelativePath="tscroll.cpp">
+				RelativePath="tree.cpp"
+				>
 			</File>
 			<File
-				RelativePath="utils.cpp">
+				RelativePath="tscroll.cpp"
+				>
 			</File>
 			<File
-				RelativePath="view.cpp">
+				RelativePath="utils.cpp"
+				>
+			</File>
+			<File
+				RelativePath="view.cpp"
+				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
-			Filter="h;hpp;hxx;hm;inl;inc">
+			Filter="h;hpp;hxx;hm;inl;inc"
+			>
 			<File
-				RelativePath="ErrorOut.h">
+				RelativePath="compitem.h"
+				>
 			</File>
 			<File
-				RelativePath="compitem.h">
+				RelativePath="complist.h"
+				>
 			</File>
 			<File
-				RelativePath="complist.h">
+				RelativePath="ErrorOut.h"
+				>
 			</File>
 			<File
-				RelativePath="file.h">
+				RelativePath="file.h"
+				>
 			</File>
 			<File
-				RelativePath="findgoto.h">
+				RelativePath="findgoto.h"
+				>
 			</File>
 			<File
-				RelativePath="gutils.h">
+				RelativePath="gutils.h"
+				>
 			</File>
 			<File
-				RelativePath="gutilsrc.h">
+				RelativePath="gutilsrc.h"
+				>
 			</File>
 			<File
-				RelativePath="line.h">
+				RelativePath="line.h"
+				>
 			</File>
 			<File
-				RelativePath="list.h">
+				RelativePath="list.h"
+				>
 			</File>
 			<File
-				RelativePath="precomp.h">
+				RelativePath="precomp.h"
+				>
 			</File>
 			<File
-				RelativePath="profile.h">
+				RelativePath="profile.h"
+				>
 			</File>
 			<File
-				RelativePath="scandir.h">
+				RelativePath="scandir.h"
+				>
 			</File>
 			<File
-				RelativePath="sdapi.h">
+				RelativePath="sdapi.h"
+				>
 			</File>
 			<File
-				RelativePath="sdkdiff.h">
+				RelativePath="sdkdiff.h"
+				>
 			</File>
 			<File
-				RelativePath="section.h">
+				RelativePath="section.h"
+				>
 			</File>
 			<File
-				RelativePath="state.h">
+				RelativePath="state.h"
+				>
 			</File>
 			<File
-				RelativePath="table.h">
+				RelativePath="table.h"
+				>
 			</File>
 			<File
-				RelativePath="tpriv.h">
+				RelativePath="tpriv.h"
+				>
 			</File>
 			<File
-				RelativePath="tree.h">
+				RelativePath="tree.h"
+				>
 			</File>
 			<File
-				RelativePath="view.h">
+				RelativePath="view.h"
+				>
 			</File>
 			<File
-				RelativePath="wdiffrc.h">
+				RelativePath="wdiffrc.h"
+				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
-			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;r">
+			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;r"
+			>
 			<File
-				RelativePath="horzline.cur">
+				RelativePath="horzline.cur"
+				>
 			</File>
 			<File
-				RelativePath="sdkdiff.rc">
+				RelativePath="sdkdiff.rc"
+				>
 			</File>
 			<File
-				RelativePath="vertline.cur">
+				RelativePath="vertline.cur"
+				>
 			</File>
 		</Filter>
 	</Files>

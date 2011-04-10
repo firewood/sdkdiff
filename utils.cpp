@@ -200,6 +200,7 @@ static BOOL FFindEOL(FILEBUFFER fbuf, LPSTR *ppszLine, int *pcch, LPWSTR *ppwzLi
             }
         }
     }
+#if 0
     for (psz = fbuf->start; psz < fbuf->last; psz = CharNext(psz))
     {
         if (!*psz)
@@ -215,6 +216,104 @@ static BOOL FFindEOL(FILEBUFFER fbuf, LPSTR *ppszLine, int *pcch, LPWSTR *ppwzLi
             return TRUE;
         }
     }
+#else
+	int sjis_score = 0;
+	int utf8_score = 0;
+	bool in_sjis = false;
+	bool in_utf8_2 = false;
+	int in_utf8_3 = 0;
+	for (psz = fbuf->start; psz < fbuf->last; ++psz) {
+		if ((fbuf->start - psz) >= MAX_LINE_LENGTH) {
+			*psz = 10;
+		}
+
+		unsigned char c = *psz;
+		if (!in_sjis) {
+			if ((c >= 0x81 && c <= 0x9F) || (c >= 0xE0 && c <= 0xFC)) {
+				in_sjis = true;
+			}
+		} else {
+			in_sjis = false;
+			if ((c >= 0x40 && c <= 0x7E) || (c >= 0x80 && c <= 0xFC)) {
+				sjis_score += 2;
+			} else {
+				sjis_score = -1;
+			}
+		}
+		bool prev_utf8_2 = in_utf8_2;
+		if (!in_utf8_2) {
+			if (c >= 0xC0 && c <= 0xDF) {
+				in_utf8_2 = true;
+			}
+		} else {
+			in_utf8_2 = false;
+			if (c >= 0x80 && c <= 0xBF) {
+				utf8_score += 2;
+			} else {
+				utf8_score = -1;
+			}
+		}
+		if (!prev_utf8_2 && !in_utf8_2) {
+			if (!in_utf8_3) {
+				if ((c >= 0xE0 && c <= 0xEF)) {
+					++in_utf8_3;
+				}
+			} else if (in_utf8_3 == 1) {
+				if (c >= 0x80 && c <= 0xBF) {
+					++in_utf8_3;
+				} else {
+					in_utf8_3 = 0;
+					utf8_score = -1;
+				}
+			} else {
+				in_utf8_3 = 0;
+				if (c >= 0x80 && c <= 0xBF) {
+					utf8_score += 3;
+				} else {
+					utf8_score = -1;
+				}
+			}
+		}
+
+		if (!*psz) {
+			*psz = '.';
+		}
+
+		// use LPBYTE cast to make sure sign extension doesn't index
+		// negatively
+		if (delims[*(LPBYTE)psz]) {
+			// reset score if lead byte is not terminated
+			if (in_sjis) {
+				sjis_score = -1;
+			}
+			if (in_utf8_2 || in_utf8_3) {
+				utf8_score = -1;
+			}
+
+			if (utf8_score > 0 && utf8_score >= sjis_score) {
+				// convert to DBCS from UTF-8
+				WCHAR buffer[MAX_LINE_LENGTH];
+				int dbcs_buf_length = psz - fbuf->start;
+				int length = ::MultiByteToWideChar(CP_UTF8, 0, fbuf->start, dbcs_buf_length, buffer, BUFFER_SIZE);
+				if (length > 0) {
+					length = ::WideCharToMultiByte(CP_ACP, 0, buffer, length, fbuf->start, dbcs_buf_length, NULL, NULL);
+					if (length > 0) {
+						*(fbuf->start + length) = 10;
+						*pcch = length + 1;
+						*ppszLine = fbuf->start;
+						fbuf->start = psz + 1;
+						return TRUE;
+					}
+				}
+			}
+
+			*pcch = (UINT)(psz - fbuf->start) + 1;
+			*ppszLine = fbuf->start;
+			fbuf->start += *pcch;
+			return TRUE;
+		}
+	}
+#endif
     return FALSE;
 }
 

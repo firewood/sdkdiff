@@ -1,3 +1,14 @@
+This is a modified copy of SDKDiff, which is known as WinDiff
+provided by Microsoft Corporation included in the Platform SDK.
+A limited UTF-8 support is added.
+
+I think this tool is under MICROSOFT LIMITED PUBLIC LICENSE
+described in Terms of Use of the Microsoft Developer Network.
+See http://msdn.microsoft.com/en-us/cc300389 for details.
+
+Original content is below.
+-------------------------------
+
 THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
 ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A

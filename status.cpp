@@ -15,7 +15,7 @@
 
 /*---includes-----------------------------------------------------------*/
 #include "precomp.h"
-#include "..\sdkdiff\errorout.h"
+#include "errorout.h"
 
 /* --- data structures ------------------------------------------------- */
 

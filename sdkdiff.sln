@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sdkdiff", "sdkdiff.vcproj", "{AD3FC307-EA18-42CB-B914-759B6834BDAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD3FC307-EA18-42CB-B914-759B6834BDAC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AD3FC307-EA18-42CB-B914-759B6834BDAC}.Debug|Win32.Build.0 = Debug|Win32
+		{AD3FC307-EA18-42CB-B914-759B6834BDAC}.Release|Win32.ActiveCfg = Release|Win32
+		{AD3FC307-EA18-42CB-B914-759B6834BDAC}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

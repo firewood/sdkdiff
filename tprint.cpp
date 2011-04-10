@@ -21,7 +21,7 @@
 
 #include "table.h"
 #include "tpriv.h"
-#include "..\sdkdiff\errorout.h"
+#include "errorout.h"
 
 /* in tpaint.c, calls GetTextExtentPoint */
 extern int GetTextExtent(HDC, LPSTR, int);

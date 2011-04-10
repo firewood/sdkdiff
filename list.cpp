@@ -11,7 +11,7 @@
 
 #include "precomp.h"
 #include "list.h"
-#include "..\sdkdiff\errorout.h"
+#include "errorout.h"
 
 // use the standard Trace_Error function, but we have no
 // parent window to pass for these errors.
