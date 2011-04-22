@@ -512,7 +512,7 @@ BOOL bDBCS;             /* set if primary language is Japanese/Korean/Chinese */
 
 extern char*s;
 
-char editor_cmdline[256] = "notepad %p";  /* editor cmdline */
+char editor_cmdline[1024] = "notepad %p";  /* editor cmdline */
 
 char g_szFontFaceName[LF_FACESIZE];
 int g_nFontHeight;
@@ -2100,7 +2100,7 @@ do_editfile(
 
     COMPITEM item;
     LPSTR fname;
-    char cmdline[MAX_PATH] = {'\0'};
+    char cmdline[1024] = {0};
     long selline, currentline;
     char * pOut = cmdline;
     char * pIn = editor_cmdline;
