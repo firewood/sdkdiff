@@ -2237,6 +2237,8 @@ do_editfile(
         goto error;
     }
 
+	Sleep(200);
+
     /* wait for completion. */
     WaitForSingleObject(pi.hProcess, INFINITE);
 

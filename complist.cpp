@@ -979,7 +979,8 @@ BOOL
 complist_markpattern(COMPLIST cl)
 {
     COMPITEM ci;
-    char achPattern[MAX_PATH];
+    char profile[1024];
+    char achPattern[1024];
     BOOL bOK = FALSE;
     LPSTR ptag;
     TCHAR   szBuff[40];
@@ -989,17 +990,25 @@ complist_markpattern(COMPLIST cl)
 			OutputError(hr, IDS_SAFE_COPY);
 
     sdkdiff_UI(TRUE);
+	GetProfileString(APPNAME, "Pattern", ".obj", profile, 1024);
     bOK = StringInput(achPattern, sizeof(achPattern), LoadRcString(IDS_ENTER_SUBSTRING2),
-            szBuff, "obj");
+            szBuff, profile);
     sdkdiff_UI(FALSE);
 
     if (!bOK) {
         return(FALSE);
     }
 
+	if (strcmp(profile, achPattern) != 0) {
+		WriteProfileString(APPNAME, "Pattern", achPattern);
+	}
+
+	if (!cl) {
+		return FALSE;
+	}
+
     bOK = FALSE;
 
-   
 	for( ci=(COMPITEM)List_First(cl->items);  ci!=NULL;  ci = (COMPITEM)List_Next((LPVOID)ci)) {
         ptag = compitem_gettext_tag(ci);
         if (strstr(ptag, achPattern) != NULL) {
