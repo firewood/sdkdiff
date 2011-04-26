@@ -877,7 +877,60 @@ complist_itemcount(COMPLIST cl)
     return List_Card(cl->items);
 }
 
-#ifdef USE_REGEXP
+#ifdef USE_STD_REGEXP
+	#include <regex>
+
+BOOL
+complist_markpattern(COMPLIST cl)
+{
+	TCHAR szBuff[40];
+	HRESULT hr = StringCchCopy(szBuff, 40, LoadRcString(IDS_MARK_FILES));
+	if (FAILED(hr)) {
+		OutputError(hr, IDS_SAFE_COPY);
+		return FALSE;
+	}
+
+	char previous_pat[1000];
+	GetProfileString(APPNAME, "Pattern", "\\.obj$", previous_pat, 1000);
+
+	sdkdiff_UI(TRUE);
+	char achPattern[1000];
+	BOOL bOK = StringInput(achPattern, sizeof(achPattern),
+			LoadRcString(IDS_ENTER_SUBSTRING1),
+			szBuff, previous_pat );
+	sdkdiff_UI(FALSE);
+
+	if (!bOK) {
+		return FALSE;
+	}
+
+	if (strcmp(previous_pat, achPattern) != 0) {
+		WriteProfileString(APPNAME, "Pattern", achPattern);
+	}
+
+	std::tr1::regex R(std::string(achPattern), std::tr1::regex::icase);
+
+	if (!cl) {
+		return FALSE;
+	}
+
+	COMPITEM ci;
+	for (ci=(COMPITEM)List_First(cl->items); ci != NULL; ci = (COMPITEM)List_Next((LPVOID)ci)) {
+		LPSTR ptag = compitem_gettext_tag(ci);
+		if (std::tr1::regex_search(ptag, R)) {
+			if (!compitem_getmark(ci)) {
+				bOK = TRUE;
+				compitem_setmark(ci, TRUE);
+			}
+		} else {
+			compitem_setmark(ci, FALSE);
+		}
+	}
+
+	return bOK;
+}
+
+#elif defined(USE_REGEXP)
     #include "regexp.h"
 
 /*
