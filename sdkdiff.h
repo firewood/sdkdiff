@@ -195,10 +195,14 @@ void BarDrawPosition(HWND hwndBar, HDC hdcIn, BOOL bErase);
 
 extern BOOL __BERR;
 
+#ifdef _DEBUG
 #define TRACE_ERROR(msg,flag) ( sdkdiff_UI(TRUE),                      \
                                 __BERR = Trace_Error(hwndClient, msg, flag),       \
                                 sdkdiff_UI(FALSE),                     \
                                 __BERR                                 \
                               )
+#else
+#define TRACE_ERROR(msg,flag) FALSE
+#endif
 
 #endif
